@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        #chart-container {
+            width: 100%;
+            height: 400px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Monitor</h1>
+    <div id="chart-container">
+        <canvas id="monitoringChart"></canvas>
+    </div>
+    <h3>System Data</h3>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>CPU Usage (%)</th>
+                <th>Memory Used (MB)</th>
+                <th>Memory Free (MB)</th>
+                <th>Disk Read (MB)</th>
+                <th>Disk Write (MB)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const apiUrl = "/api/monitoring";  // Correct API endpoint
+        const chartCtx = document.getElementById("monitoringChart").getContext("2d");
+
+        // Create the chart with multiple datasets for each property
+        const chart = new Chart(chartCtx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'CPU Usage (%)',
+                        data: [],
+                        borderColor: 'rgba(75, 192, 192, 1)',  // Blue color
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                    },
+                    {
+                        label: 'Memory Used (MB)',
+                        data: [],
+                        borderColor: 'rgba(255, 99, 132, 1)',  // Red color
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                    },
+                    {
+                        label: 'Memory Free (MB)',
+                        data: [],
+                        borderColor: 'rgba(54, 162, 235, 1)',  // Blue color
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                    },
+                    {
+                        label: 'Disk Read (MB)',
+                        data: [],
+                        borderColor: 'rgba(153, 102, 255, 1)',  // Purple color
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                    },
+                    {
+                        label: 'Disk Write (MB)',
+                        data: [],
+                        borderColor: 'rgba(255, 159, 64, 1)',  // Orange color
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderWidth: 2,
+                        fill: true,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                    },
+                },
+                animation: {
+                    duration: 1000, // 1 second for smooth updates
+                }
+            }
+        });
+
+        async function fetchData() {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            updateTable(data);
+            updateChart(data);
+        }
+
+        function updateTable(data) {
+            const tableBody = document.querySelector("#data-table tbody");
+            tableBody.innerHTML = '';  // Clear existing table data
+            data.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${new Date(item.timestamp).toLocaleString()}</td>
+                    <td>${item.cpuUsage}</td>
+                    <td>${item.memoryUsed}</td>
+                    <td>${item.memoryFree}</td>
+                    <td>${item.diskRead}</td>
+                    <td>${item.diskWrite}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function updateChart(data) {
+            // Update the chart with new data (timestamp, cpuUsage, memoryUsed, etc.)
+            chart.data.labels = data.map(item => item.timestamp);  // Update x-axis with timestamp
+            chart.data.datasets[0].data = data.map(item => item.cpuUsage);  // CPU Usage
+            chart.data.datasets[1].data = data.map(item => item.memoryUsed);  // Memory Used
+            chart.data.datasets[2].data = data.map(item => item.memoryFree);  // Memory Free
+            chart.data.datasets[3].data = data.map(item => item.diskRead);  // Disk Read
+            chart.data.datasets[4].data = data.map(item => item.diskWrite);  // Disk Write
+            chart.update();  // Redraw the chart with new data
+        }
+
+        // Fetch data every 5 seconds
+        setInterval(fetchData, 5000);
+        fetchData();  // Initial data fetch
+    </script>
+</body>
+</html>

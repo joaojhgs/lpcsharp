@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/skyron/Documents/lpcsharp/SystemMonitorAgent/SystemMonitorAgent.csproj": {}
+  },
+  "projects": {
+    "/home/skyron/Documents/lpcsharp/SystemMonitorAgent/SystemMonitorAgent.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/skyron/Documents/lpcsharp/SystemMonitorAgent/SystemMonitorAgent.csproj",
+        "projectName": "SystemMonitorAgent",
+        "projectPath": "/home/skyron/Documents/lpcsharp/SystemMonitorAgent/SystemMonitorAgent.csproj",
+        "packagesPath": "/home/skyron/.nuget/packages/",
+        "outputPath": "/home/skyron/Documents/lpcsharp/SystemMonitorAgent/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/skyron/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.VisualBasic": {
+              "target": "Package",
+              "version": "[10.3.0, )"
+            },
+            "System.Diagnostics.PerformanceCounter": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/254/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

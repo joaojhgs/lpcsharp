@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "YD4xN0QJV3f7QjcKNY+oUIMDV0NNJgGaWfbxVK9NO48=",
+  "Source": "ServerCentral",
+  "BasePath": "_content/ServerCentral",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ServerCentral/wwwroot",
+      "Source": "ServerCentral",
+      "ContentRoot": "/home/skyron/Documents/lpcsharp/ServerCentral/wwwroot/",
+      "BasePath": "_content/ServerCentral",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/skyron/Documents/lpcsharp/ServerCentral/wwwroot/index.html",
+      "SourceId": "ServerCentral",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/skyron/Documents/lpcsharp/ServerCentral/wwwroot/",
+      "BasePath": "_content/ServerCentral",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ]
+}
