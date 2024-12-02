@@ -21,3 +21,4 @@
 /home/skyron/Documents/lpcsharp/SystemMonitorAgent/obj/Debug/net8.0/SystemMonitorAgent.pdb
 /home/skyron/Documents/lpcsharp/SystemMonitorAgent/obj/Debug/net8.0/SystemMonitorAgent.genruntimeconfig.cache
 /home/skyron/Documents/lpcsharp/SystemMonitorAgent/obj/Debug/net8.0/ref/SystemMonitorAgent.dll
+/home/skyron/Documents/lpcsharp/SystemMonitorAgent/obj/Debug/net8.0/SystemMonitorAgent.sourcelink.json
