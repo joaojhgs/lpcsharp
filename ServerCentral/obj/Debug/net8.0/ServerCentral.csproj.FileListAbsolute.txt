@@ -45,3 +45,4 @@
 /home/skyron/Documents/lpcsharp/ServerCentral/obj/Debug/net8.0/ref/ServerCentral.dll
 /home/skyron/Documents/lpcsharp/ServerCentral/bin/Debug/net8.0/ServerCentral.staticwebassets.runtime.json
 /home/skyron/Documents/lpcsharp/ServerCentral/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/skyron/Documents/lpcsharp/ServerCentral/obj/Debug/net8.0/ServerCentral.sourcelink.json
